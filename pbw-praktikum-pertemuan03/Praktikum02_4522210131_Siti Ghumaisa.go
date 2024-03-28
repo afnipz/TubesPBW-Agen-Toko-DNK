@@ -4,7 +4,7 @@ package main
 import "fmt"
 
 func main() {
-	
+
     batasNilai := map[string]int{
         "A": 90,
         "B": 80,
@@ -20,8 +20,7 @@ func main() {
         }
         return "E"
     }
-
-    // Menentukan nilai huruf untuk beberapa nilai ujian
+    // menentukan nilai huruf untuk beberapa nilai ujian
     nilaiUjian := []int{85, 75, 95, 55, 65}
 	for _, nilai := range nilaiUjian {
         fmt.Println("Nilai ujian", nilai, ":", getNilaiHuruf(nilai))
