@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - TOKO DNK</title>
+    <!-- MYFONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <!-- Tambahkan link ke Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;600&family=Viga&display=swap"
+      rel="stylesheet"
+    />
+    <!-- AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 2rem;
+                }
+
+          .navbar {
+            background-color: #000080;
+            padding: 10px;
+        }
+        .navbar-brand {
+            color: #ef8b10;
+            font-family: 'Viga', sans-serif;
+            font-size: 2rem;
+        }
+        .navbar-brand:hover {
+            color: #ffffff;
+        }
+        .links {
+            margin-top: 5px;
+            display: flex;
+            justify-content: space-around;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            flex: 1; /* Menambahkan properti flex agar elemen bisa mengisi ruang yang tersedia */
+        }
+        .links a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 1px 3px; /* Mengurangi padding */
+            transition: color 0.3s;
+            font-weight: bold;
+        }
+        .links a:hover {
+            color: #ef8b10;
+        }
+        .navbar a[href*="wa.me"] {
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .navbar a:hover {
+            color: #ef8b10;
+        }
+        .navbar .navbar-nav a {
+            color: white;
+            display: inline-block;
+            font-size: 0.7rem;
+            margin: 0 0.8rem; /* Mengurangi margin */
+        }
+        .navbar .navbar-nav a:hover {
+            color: #ef8b10;
+        }
+        .navbar .navbar-nav a::after {
+            display: block;
+            padding-bottom: 0.5rem;
+            border-bottom: 0.1rem solid var(--primary);
+            transform: scaleX(0);
+            transition: 0.2s linear;
+        }
+        .navbar .navbar-nav a:hover::after {
+            transform: scaleX(0.5);
+        }
+        .navbar .navbar-extra a {
+            color: white;
+            margin: 0 0.5rem;
+        }
+        .navbar-toggle {
+            position: relative;
+        }
+        .navbar-nav.hidden {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            width: 200px;
+            padding: 10px;
+            z-index: 1000;
+        }
+        .navbar-nav.hidden a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333333;
+        }
+        .navbar .navbar-extra a:hover {
+            color: var(--primary);
+        }
+        .navbar-nav .nav-link {
+            color: #ffffff;
+            font-weight: 520;
+            transition: color 0.2s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ef8b10;
+        }
+        .nav-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+        .nav-link i {
+            margin-right: 5px;
+        }
+        .nav-link:hover {
+            background-color: #0056b3;
+        }
+        .section {
+            padding: 60px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        .section-border {
+            border-top: 1px solid #eaeaea;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .bg-pattern {
+            background: url('https://www.toptal.com/designers/subtlepatterns/patterns/memphis-mini.png');
+        }
+        .btn-primary {
+            background-color: #000080;
+            border-color: #000080;
+            transition: background-color 0.3s, border-color 0.3s;
+            margin-right: 10px;
+        }
+        .btn-primary:hover {
+            background-color: #000080;
+            border-color: #000080;
+        }
+        .btn-secondary {
+            background-color: #f39c12;
+            border-color: #f39c12;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .btn-secondary:hover {
+            background-color: #e67e22;
+            border-color: #e67e22;
+        }
+
+        /*FOOTER*/
+        footer {
+            background-color: var(--primary);
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 3rem;
+        }
+        footer .social {
+            padding: 1rem 0;
+        }
+
+        footer .social a {
+            color: rgb(203, 162, 51);
+            margin: 1rem;
+            padding: 0.7rem 1rem;
+        }
+
+        footer .social a:hover {
+            color: #ffffff;
+            margin: 1rem;
+        }
+
+        footer .links a {
+            color: var(--bg);
+            margin-bottom: 15px;
+        }
+
+        footer .links a:hover {
+            color: #e67e22;
+        }
+
+        footer .credit {
+            font-size: 0.8rem;
+        }
+
+        footer .credit p {
+            color: var(--bg);
+            font-weight: 400;
+        }
+
+        footer .credit a {
+            color: var(--bg);
+            font-weight: 700;
+        }
+        footer {
+            background-color: #000080;
+            color: #ffffff;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        /* Toggle */
+        .navbar-toggle {
+            position: relative;
+            cursor: pointer;
+            color: #ffffff;
+        }
+        #toggleMenu {
+            display: none;
+        }
+        #toggleMenu:checked + .navbar-toggler + .navbar-nav.hidden {
+            display: block;
+        }
+        #navbarNav {
+            background-color: transparent;
+            outline: transparent;
+        }
+
+        /* Ukuran untuk desktop */
+        @media (min-width: 992px) {
+            .navbar-toggler {
+                font-size: 1.5rem;
+                padding: 0.25rem 0.5rem;
+                cursor: pointer;
+            }
+            .navbar-nav.hidden {
+                top: 70px;
+                width: 220px;
+            }
+        }
+
+        /* Ukuran untuk mobile */
+        @media (max-width: 991.98px) {
+            .navbar-toggler {
+                font-size: 1.5rem;
+                padding: 0.25rem 0.5rem; /
+            }
+            .navbar-nav.hidden {
+                top: 70px;
+                width: 220px; /
+            }
+        }
+
+        /* Main Content */
+        .layar-01 {
+            padding: 60px 0;
+            text-align: center;
+            background-color: #f5f5f5;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .bg-pattern {
+            background: url('https://www.toptal.com/designers/subtlepatterns/patterns/geometry.png');
+        }
+
+        .layar-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0e0e57;
+        }
+
+        .layar-text h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #0c0c0c;
+            font-family: 'Poppins', sans-serif bold;
+        }
+
+        .layar-text p {
+            font-size: 1.2rem;
+            color: #1a1919;
+            font-family: 'Poppins', sans-serif;
+
+        }
+
+      .slides {
+      position: relative;
+        width: 100%;
+        max-width: 700px;
+        margin: auto;
+    }
+
+    .slides .slide{
+        display: none;
+    }
+
+    .slides .slide img{
+        width: 100%;
+        animation-name: fade;
+        animation-duration: 1s;
+    }
+
+    .slides .navigation{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .slides .navigation .prev, .slides .navigation .next{
+        cursor: pointer;
+        padding: 16px;
+        font-weight: bold;
+        font-size: 20px;
+        color: white;
+        background: rgba(0, 0, 0, 0.2);
+        user-select: none;
+        transition: 0.6s ease;
+    }
+
+    .slides .navigation .prev:hover, .slides .navigation .next:hover{
+        background: rgba(0, 0, 0, 1);
+    }
+    
+    @keyframes fade{
+        from{opacity: 0.3;}
+        to{opacity: 1;}
+    }
+        /* Section Title */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #323237;
+        }
+
+        /* Card Styling */
+        .slides {
+            position: relative;
+            max-width: 1000px;
+            margin: auto;
+            overflow: hidden;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 500px; /* Adjust height as needed */
+            position: relative;
+            text-align: center;
+            background-color: white; /* Background color for each slide */
+        }
+
+        .slide .card {
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none; /* Remove border from card */
+        }
+
+        .slide img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .navigation {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 2rem;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        @media (min-width: 1400px) {
+            .slides {
+                max-width: 1400px;
+            }
+            .slide {
+                height: 600px; /* Adjust height as needed */
+            }
+        }
+       
+        /* card produk unggulan */
+        .card {
+            background-color: white;
+            border: none;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+            .card-title {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: #0e0e57;
+            }
+
+            .card-text {
+                font-size: 1.2rem;
+                color: #080707;
+            }
+          
+           .card-img-top {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            object-position: center;
+            background-color: white;
+            padding: 10px; 
+        }
+
+        /* Button Styling */
+        .btn-primary,
+        .btn-secondary {
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background-color: #000080;
+            border-color: #000080;
+        }
+
+        .btn-primary:hover {
+            background-color: #ef8b10;
+            border-color: #000000;
+        }
+
+        .btn-secondary {
+            background-color: #ef8b10;
+            border-color: #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+
+        .btn-lg {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .layar-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .layar-text h2 {
+                font-size: 1.5rem;
+            }
+
+            .layar-text p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+/* Popup */
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+}
+
+/* Popup Content */
+.popup__content {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Adjust width */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the element */
+  max-height: 90vh; /* Ensure it fits within the viewport */
+  overflow-y: auto; /* Add scrolling if content is too long */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.popup__img {
+  text-align: center; /* Center horizontally */
+  margin-bottom: 30px;
+}
+
+.popup__img img {
+  max-width: 100%; /* Maximum width */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 200px; /* Maximum height */
+}
+
+.popup__header {
+  text-align: center;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.popup__header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.popup__header h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.popup__text {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.popup__btn {
+  text-align: center; /* Center text horizontally */
+}
+
+.popup__btn a {
+  color: white;
+  text-decoration: none;
+  background: #0e0e57;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.popup__btn a:hover {
+  background: #ef8b10;
+}
+
+.cart-icon {
+    color: #ef8b10;
+    font-size: 24px;
+  }
+
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand">T O K O &nbsp;&nbsp; D N K</a>
+        <div class="links">
+          <a href="#Unggulan">Produk Unggulan</a>
+          <a href="#Layanan">Layanan Kami</a>
+          <a href="#Ulasan">Ulasan Pelanggan</a>
+          <a href="#Statistik">Statistik Toko</a>
+        </div>
+        <a href="https://wa.me/6289676563902/" target="_blank"
+          ><i data-feather="phone"></i
+        ></a>
+        <div
+          class="navbar-toggle"
+          onmouseenter="showNavbar()"
+          onmouseleave="hideNavbar()"
+        >
+          <input type="checkbox" id="toggleMenu"/>
+          <label for="toggleMenu" class="navbar-toggler">&#9776;</label>
+          <div class="navbar-nav hidden" id="navbarNav">
+            <a class="nav-link" href="#" onclick="selectMenu('product')">
+              <i class="fas fa-box"></i> Lihat Produk
+          </a>
+          <a class="nav-link" href="#" onclick="selectMenu('cart')">
+            <i class="fas fa-box"></i> Lihat Keranjang
+        </a>
+          <a class="nav-link" href="#" onclick="selectMenu('login')">
+              <i class="fas fa-sign-out-alt"></i> Log Out
+          </a>
+          <a class="nav-link" href="#" onclick="selectMenu('signout')">
+              <i class="fas fa-door-open"></i> Sign Out
+          </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="layar-01 bg-pattern">
+      <div class="container">
+        <div class="layar-text" data-aos="fade-up">
+          <h1>Selamat Datang di TOKO DNK</h1>
+        </div>
+        </div>
+        <br/>
+        <br/>
+
+        <!-- SLIDES -->
+        <div class="slides">
+          <div class="slide">
+            <img
+              src="https://assets.unileversolutions.com/v1/114246347.jpg"
+              alt="produk1"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://i.ytimg.com/vi/SrK1_RkfKQw/maxresdefault.jpg" class="p-4"
+              alt="produk2"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://images.tokopedia.net/img/cache/700/VqbcmM/2021/7/27/ca3589e2-a934-4969-8849-9b1f12ed3cd2.jpg"
+              alt="produk3"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://images.bisnis.com/posts/2024/02/09/1739561/beras_1697301613.jpg" class="p-4"
+              alt="produk4"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0458/3541/9808/products/WhatsAppImage2021-02-19at11.11.57AM_580x@2x.jpg?v=1614412605" class="p-4"
+              alt="produk5"
+            />
+          </div>
+          <div class="navigation">
+            <a class="prev" onclick="plusSlides(-1)">&#10094</a>
+            <a class="next" onclick="plusSlides(-1)">&#10095</a>
+          </div>
+        </div>
+
+
+<!-- script slide -->
+        <script>
+            var slideIndex =1;
+            showSlide(slideIndex);
+
+            function plusSlides(n){
+                showSlide(slideIndex += n);
+            }
+
+            function showSlide(n){
+                var i;
+                var slides = document.getElementsByClassName("slide");
+                if(n>slides.length)
+                {
+                    slideIndex=1;
+                }
+                if (n<1)
+                {
+                    slideIndex=slides.length
+                }
+                for(i=0; i<slides.length; i++)
+                {
+                    slides[i].style.display="none";
+                }
+                slides[slideIndex-1].style.display="block";
+            }
+        </script>
+
+<!-- Produk Unggulan -->
+<section id="Unggulan" class="section section-border bg-pattern" data-aos="fade-up">
+  <div class="container">
+    <h2 class="section-title text-center mb-5">Produk</h2>
+    <a href="/cart" class="cart-icon text-decoration-none">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+      <br/>
+      <br/>
+      <br/>
+    <div class="row justify-content-center">
+      {{ range .Products }}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ .Nama }}</h5>
+            <p class="card-text text-center">Harga: {{ .Harga }}</p>
+            <p class="card-text">{{ .Deskripsi }}</p>
+            <form action="/cart/create" method="post" class="text-center">
+              <input type="hidden" name="ProductName" value="{{ .Nama }}">
+              <input type="hidden" name="Kuantitas" value="1"> <!-- Default quantity to 1 -->
+              <button type="submit" class="btn btn-primary ">Tambah ke Keranjang</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+
+<!-- JS AOS -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<!-- Bootstrap Bundle JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Your Custom JS -->
+<script src="script.js"></script>
+
+<!-- Popups -->
+<div class="popup" id="popup1">
+  <div class="popup__content">
+    <div class="popup__img">
+      <img src="https://sribu-2022.s3.amazonaws.com/assets/media/contest_detail/2019/11/beras-petani-organik-sbu-5ddbbb689d68b16197a0b76e/bafbcaaf4d.jpg" alt="beras" class="card__img">
+    </div>
+    <div class="popup__header">
+      <h1>Buy Now!</h1>
+    </div>
+    <div class="popup__text">
+      <p>Beras adalah sumber utama karbohidrat yang penting untuk energi tubuh. Tersedia dalam berbagai varietas seperti beras putih, beras merah, dan beras hitam, beras ini memiliki tekstur dan rasa yang bervariasi, cocok untuk berbagai hidangan. Dikemas dalam berbagai ukuran, mulai dari kilogram hingga puluhan kilogram untuk memenuhi kebutuhan rumah tangga maupun komersial.</p>
+    </div>
+    <div class="popup__btn">
+      <a href="#" onclick="closePopup('popup1')">Close</a>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="popup2">
+  <div class="popup__content">
+    <div class="popup__img">
+      <img src="https://ugm.ac.id/wp-content/uploads/2020/05/19052015898557321573115274.jpg" alt="telur" class="card__img">
+    </div>
+    <div class="popup__header">
+      <h1>Buy Now!</h1>
+    </div>
+    <div class="popup__text">
+      <p>Telur adalah sumber protein yang sangat baik untuk tubuh. Telur ini berasal dari ayam yang dipelihara dengan baik dan bebas dari bahan kimia berbahaya. Cocok untuk berbagai jenis masakan dan dapat dinikmati setiap hari.</p>
+    </div>
+    <div class="popup__btn">
+      <a href="#" onclick="closePopup('popup2')">Close</a>
+    </div>
+  </div>
+</div>
+
+<div class="popup" id="popup3">
+  <div class="popup__content">
+    <div class="popup__img">
+      <img src="https://assets.klikindomaret.com/products/10005839/10005839_1.jpg" alt="minyak" class="card__img">
+    </div>
+    <div class="popup__header">
+      <h1>Buy Now!</h1>
+    </div>
+    <div class="popup__text">
+      <p>Minyak adalah bahan masakan yang penting untuk menggoreng dan menumis. Minyak ini berasal dari kelapa sawit yang diproses dengan baik, sehingga menghasilkan minyak berkualitas tinggi yang bebas dari kolesterol.</p>
+    </div>
+    <div class="popup__btn">
+      <a href="#" onclick="closePopup('popup3')">Close</a>
+    </div>
+  </div>
+</div>
+
+        <!-- Layanan Kami -->
+        <section id="Layanan" class="section section-border" data-aos="fade-up">
+          <div class="container">
+            <h2 class="section-title">Layanan Kami</h2>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-body"><br>
+                    <h5 class="card-title">Pembayaran Fleksibel</h5><br><br>
+                    <p class="card-text">Layanan ini menyediakan berbagai metode pembayaran yang fleksibel untuk kemudahan pelanggan. Selain pembayaran dengan kartu kredit dan transfer bank, pelanggan juga dapat memilih opsi pembayaran digital seperti e-wallet dan paylater. Layanan ini bertujuan untuk memberikan kemudahan dan kenyamanan dalam proses transaksi</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-body"><br>
+                    <h5 class="card-title">Pengiriman Cepat dan Gratis</h5><br><br>
+                    <p class="card-text">Layanan ini menyediakan pengiriman cepat dan gratis untuk semua pembelian di atas jumlah tertentu. Pelanggan tidak perlu khawatir dengan biaya tambahan untuk pengiriman dan bisa mendapatkan produk mereka dengan lebih cepat. Pengiriman cepat ini mencakup area tertentu.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-body"><br>
+                    <h5 class="card-title">Program Loyalitas dan Diskon Eksklusif</h5><br>
+                    <p class="card-text">Program ini dirancang untuk memberikan keuntungan lebih bagi pelanggan setia. Dengan mendaftar menjadi anggota, pelanggan bisa mendapatkan poin setiap kali mereka berbelanja, yang kemudian bisa ditukarkan dengan diskon pada pembelian berikutnya. Selain itu, anggota juga akan mendapatkan akses eksklusif ke penawaran dan diskon khusus yang tidak tersedia untuk pelanggan biasa.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Ulasan Pelanggan -->
+        <section
+          id="Ulasan"
+          class="section section-border bg-pattern"
+          data-aos="fade-up"
+        >
+          <div class="container">
+            <h2 class="section-title">Ulasan Pelanggan</h2>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-body"><br>
+                    <h5 class="card-title">Ulasan From Dian</h5><br>
+                    <p class="card-text">"Toko ini benar-benar memahami kebutuhan pelanggannya. Program loyalitas mereka memberikan diskon yang menarik setiap kali berbelanja. Ditambah lagi, garansi uang kembali membuat saya merasa aman untuk mencoba produk baru. Pasti akan berbelanja lagi di sini!"</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-body"><br>
+                    <h5 class="card-title">Ulasan From Reza</h5><br>
+                    <p class="card-text">"Pengalaman berbelanja yang sangat memuaskan! Pembayaran fleksibel dengan berbagai opsi memudahkan transaksi saya. Produk sampai dengan cepat dan dalam kondisi sempurna. Highly recommended!"</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-body"><br>
+                    <h5 class="card-title">Ulasan From Galang</h5><br>
+                    <p class="card-text">"Layanan kustomisasi produk di toko ini adalah yang terbaik. Saya bisa memesan produk sesuai keinginan saya, dan hasilnya sangat memuaskan. Ditambah dengan pengiriman cepat dan gratis, toko ini menjadi pilihan utama saya untuk berbelanja!"</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Statistik Toko -->
+        <section id="Statistik" class="section bg-light" data-aos="fade-up">
+          <div class="container">
+              <h2 class="section-title">Statistik Toko</h2>
+              <div class="row">
+                  <div class="col-md-4 text-center">
+                      <h3>10,000++</h3>
+                      <p>Ulasan</p>
+                  </div>
+                  <div class="col-md-4 text-center">
+                      <h3>500++</h3>
+                      <p>Produk</p>
+                  </div>
+                  <div class="col-md-4 text-center">
+                      <h3>20++</h3>
+                      <p>Layanan</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+        <!-- Tombol Lihat Produk -->
+        <section class="section text-center bg-pattern" data-aos="fade-up">
+          <div class="container">
+              <h2 class="section-title">Lihat Produk?</h2>
+              <button onclick="redirectToProductList()" class="btn btn-primary btn-lg">Lihat Produk</button>
+              <button onclick="redirectToCreateProduct()" class="btn btn-secondary btn-lg">Tambah Produk</button>
+          </div>
+      </section>
+      </div>
+    </div>
+
+    <!--Footter START-->
+    <footer id="Contact">
+      <div class="social">
+        <a href="#"><i data-feather="instagram"></i></a>
+        <a href="#"><i data-feather="twitter"></i></a>
+        <a href="#"><i data-feather="facebook"></i></a>
+        <a href="#"><i data-feather="youtube"></i></a>
+      </div>
+      <div class="links">
+        <a href="#Unggulan">Produk Unggulan</a>
+        <a href="#Layanan">Layanan Kami</a>
+        <a href="#Ulasan">Ulasan Pelanggan</a>
+        <a href="#Statistik">Statistik Toko</a>
+      </div>
+      <div class="credit">
+        <p>Create by <a href="">Toko DNK</a> | &copy; 2024.</p>
+      </div>
+      <br />
+      <p>Jl. Lenteng Agung No. 123, Kota Depok, Jakarta Selatan</p>
+      <p>Phone: +62 123 456 789</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXlIC3RUrEmXPjVTy0GA6CAw2l84rBRsPZpO6OmVpHoqClw9BYaAdhCM1p9Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGuhuD20PHaySAe2xh2WLOoCIp8jS2f4G6BzB6YAMFLjl8giVfiYoxT+gAN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!-- Feather Icons -->
+    <script>
+      feather.replace();
+    </script>
+
+    <!-- Custom Toggle Script -->
+    <script>
+      function logout() {
+        alert("Anda telah logout!");
+        redirectToSignup();
+      }
+
+      // Redirect to signup page
+      function redirectToSignup() {
+        window.location.href = "/signup";
+      }
+    
+    // js popup
+    function showPopup(popupId) {
+  var popup = document.getElementById(popupId);
+  popup.style.display = "block";
+}
+
+function closePopup(popupId) {
+  var popup = document.getElementById(popupId);
+  popup.style.display = "none";
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('.popup__btn a').forEach(button => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      closePopup(button.closest('.popup').id);
+    });
+  });
+});
+
+    
+    </script>
+    <!-- JS AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!--My JS-->
+    <script>
+      function selectMenu(menu) {
+        switch (menu) {
+          case "login":
+            redirectToLogin();
+            break;
+          case "product":
+            redirectToProductList();
+            break;
+          case "signout":
+            redirectToSignup();
+            break;
+          case "cart":
+            redirectToViewCart();
+          default:
+            break;
+        }
+      }
+
+      /// Redirect to pages
+      function redirectToDashboard() {
+        window.location.href = "/dashboard";
+      }
+
+      function redirectToLogin() {
+        window.location.href = "/login";
+      }
+
+      function redirectToViewCart() {
+        window.location.href = "/cart";
+      }
+
+      function redirectToProductList() {
+        window.location.href = "/product";
+      }
+
+      function redirectToCreateProduct() {
+        window.location.href = "/product/create";
+      }
+
+      function redirectToUpdateProduct(id) {
+        window.location.href = "/product/update?id=" + id;
+      }
+
+      function redirectToDeleteProduct(id) {
+        window.location.href = "/product/delete?id=" + id;
+      }
+
+      function showNavbar() {
+        var navbarNav = document.getElementById("navbarNav");
+        navbarNav.classList.add("show");
+      }
+
+      function hideNavbar() {
+        var navbarNav = document.getElementById("navbarNav");
+        navbarNav.classList.remove("show");
+      }
+    </script>
+  </body>
+</html>
