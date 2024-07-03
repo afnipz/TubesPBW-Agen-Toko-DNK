@@ -13,6 +13,7 @@ TOKO DNK adalah aplikasi web yang dibuat untuk mendukung operasional toko agen y
 ---
 
 # Kerangka Pikiran
+![image](https://github.com/afnipz/TubesPBW-Agen-Toko-DNK/assets/161412781/38b40fd3-6a32-458f-ba69-61c60dde6192)
 Alur singkatnya adalah pengguna memasukkan data (signup) dan masuk ke dalam database pengguna. Admin mengelola data produk (CRUD) di dalam database product. Pengguna dapat memasukkan barang, mengupdate kuantitas barang, dan melakukan transaksi pembelian. Dimana ketika memasukkan, mengupdate barang masuk ke dalam database cart. Kemudian, ketika pengguna melakukan transaksi maka akan masuk ke dalam database transactions.
 
 ---
